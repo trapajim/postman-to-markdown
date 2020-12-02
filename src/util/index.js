@@ -97,10 +97,10 @@ function readFormDataBody(body) {
         if(body.mode === 'formdata'){
             markdown += `### Body ${body.mode}\n`
             markdown += `\n`
-            markdown += `|Param|value|Type|\n`
-            markdown += `|---|---|---|\n`
+            markdown += `|Param|value|Type|Description|\n`
+            markdown += `|---|---|---|---|\n`
             body.formdata.map(form =>{
-                markdown += `|${form.key}|${form.type === 'file' ? form.src : form.value !== undefined ? form.value.replace(/\\n/g,'') : '' }|${form.type}|\n`
+                markdown += `|${form.key}|${form.type === 'file' ? form.src : form.value !== undefined ? form.value.replace(/\\n/g,'') : '' }|${form.type}|${form.description !== undefined ? form.description : "|"}\n`
             })
             markdown += `\n`
             markdown += `\n`
